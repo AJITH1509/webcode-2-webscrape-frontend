@@ -1,0 +1,69 @@
+
+
+body {
+  background-image: linear-gradient(to right, #36469fb8, #26d0ce);
+  font-family: Roboto;
+  margin: 16px;
+}
+.App {
+  text-align: center;
+}
+.login-container{
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  height: min-content;
+}
+.card-content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+
+}
+h1{
+  margin: 10px;
+  font-family: 'Rampart One', cursive;
+  font-size:40px;
+color: whitesmoke;
+transition: transform 0.9s ease;
+}
+h1:hover{ 
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.product-container {
+  background-color: white;
+  width: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: rgb(0 0 0 / 24%) 1px 2px 13px;
+}
+.product-picture {
+  width: 100%;
+height: 300px;
+object-fit: contain;
+margin-top: 5px;
+}
+.product-name {
+  font-size: 24px;
+  margin: 0px auto;
+}
+.product-company {
+  font-size: 16px;
+  color: grey;
+  margin-top: 5px;
+}
+.product-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  justify-items: center;
+  gap: 10px;
+}
+p{
+  margin :2px;
+  font-style: italic;
+  font-weight: bold;
+}
