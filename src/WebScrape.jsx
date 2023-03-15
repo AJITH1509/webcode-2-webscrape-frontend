@@ -16,7 +16,6 @@ export const Webscrape = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(product);
   return (
     <div>
       <Card className="login-container">
@@ -42,13 +41,15 @@ export const Webscrape = () => {
 
 const Phone = ({ data }) => {
   return (
-    <div className="product-container">
+    <Card className="product-container">
       <img className="product-picture" src={data.image} />
-      <h2 className="product-name">{data.name}</h2>
-      <h3 className="product-company">{data.price}</h3>
-      <h3 className="product-company">{data.rating}</h3>
-      <Button variant="contained">Buy Now</Button>
+      <CardContent>
+        <h2 className="product-name">{data.name}</h2>
+        <h3 className="product-price">{data.price}</h3>
+        <h3 className="product-rating">⭐ {data.rating}</h3>
+        <Button variant="contained">Buy Now</Button>
+      </CardContent>
       <hr style={{ opacity: 0.5, width: "70%" }} />
-    </div>
+    </Card>
   );
 };
