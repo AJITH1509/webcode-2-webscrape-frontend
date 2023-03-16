@@ -11,7 +11,7 @@ export const Webscrape = () => {
   const getData = () => {
     fetch(`${API}/${keyword}`)
       .then((data) => data.json())
-      .then((products) => setProduct(products));
+      .then((products) => console.log(products));
   };
   useEffect(() => {
     getData();
@@ -25,7 +25,7 @@ export const Webscrape = () => {
             label="Product Name"
             variant="outlined"
           />
-          <Button onClick={() => getData()} color="success" variant="contained">
+          <Button onClick={getData} color="success" variant="contained">
             Search
           </Button>
         </CardContent>
