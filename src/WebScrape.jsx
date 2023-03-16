@@ -11,7 +11,7 @@ export const Webscrape = () => {
   const getData = () => {
     fetch(`${API}/${keyword}`)
       .then((data) => data.json())
-      .then((products) => console.log(products));
+      .then((products) => setProduct(products));
   };
   useEffect(() => {
     getData();
