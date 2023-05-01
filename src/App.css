@@ -4,6 +4,7 @@ body {
   background-image: linear-gradient(to right, #36469fb8, #26d0ce);
   font-family: Roboto;
   margin: 16px;
+  overflow: hidden;
 }
 .App {
   text-align: center;
@@ -20,15 +21,13 @@ body {
   flex-direction: column;
   gap: 10px;
   background-color: rgba(255, 255, 255, 0.5);
-
-
 }
 h1{
   margin: 10px;
   font-family: 'Rampart One', cursive;
   font-size:40px;
 color: whitesmoke;
-transition: transform 0.9s ease;
+transition: all 0.9s ease;
 }
 h1:hover{ 
   cursor: pointer;
@@ -54,6 +53,7 @@ margin-top: 5px;
 .product-name {
   font-size: 24px;
   margin: 2px auto;
+  overflow:hidden;
 }
 .product-price{
   font-size: 18px;
@@ -76,4 +76,39 @@ p{
   margin :2px;
   font-style: italic;
   font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  h1{
+    margin: 10px;
+    font-family: 'Rampart One', cursive;
+    font-size:24px;
+  color: whitesmoke;
+  transition: all 0.9s ease;
+  }
+  .login-container{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    height: fit-content;
+  }
+  .login-container button{
+    margin: 5px;
+    padding: 0px;
+  }
+  p{
+    margin :2px;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+  }
+  h2{
+    font-size: 16px;
+  }  
+  .card-content{
+    gap: 5px;
+  }
+  .css-46bh2p-MuiCardContent-root{
+     padding: 5px auto;
+  }
 }

@@ -7,7 +7,7 @@ import { API } from "../global.js";
 
 export const Webscrape = () => {
   const [keyword, setKeyword] = useState("iphone");
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState(null);
   const getData = () => {
     fetch(`${API}/${keyword}`)
       .then((data) => data.json())
@@ -21,6 +21,7 @@ export const Webscrape = () => {
       <Card className="login-container">
         <CardContent className="card-content">
           <TextField
+            id="input-field"
             onChange={(e) => setKeyword(e.target.value)}
             label="Product Name"
             variant="outlined"
@@ -30,22 +31,31 @@ export const Webscrape = () => {
           </Button>
         </CardContent>
       </Card>
-      <div className="product-list-container">
-        {product.map((data) => (
-          <Phone key={data._id} data={data} />
-        ))}
-      </div>
+      {product ? (
+        <div className="product-list-container">
+          {product.map((data) => (
+            <Phone key={data._id} data={data} />
+          ))}
+        </div>
+      ) : (
+        <h2>
+          failed to Scrape Data , because Amazon blocks the data Scrape. Try
+          after Sometime
+        </h2>
+      )}
     </div>
   );
 };
 
 const Phone = ({ data }) => {
+  const dollarPrice = data.price;
+  const rupees = dollarPrice.split($)[0];
   return (
     <Card className="product-container">
       <img className="product-picture" src={data.image} />
       <CardContent>
-        <h2 className="product-name">{data.name}</h2>
-        <h3 className="product-price">{data.price}</h3>
+        <p className="product-name">{data.name}</p>
+        <h3 className="product-price">{rupees}</h3>
         <h3 className="product-rating">⭐ {data.rating}</h3>
         <Button variant="contained">Buy Now</Button>
       </CardContent>
