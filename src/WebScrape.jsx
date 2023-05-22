@@ -9,9 +9,13 @@ export const Webscrape = () => {
   const [keyword, setKeyword] = useState("iphone");
   const [product, setProduct] = useState(null);
   const getData = () => {
-    fetch(`${API}/${keyword}`)
-      .then((data) => data.json())
-      .then((products) => setProduct(products));
+    if (keyword !== "") {
+      fetch(`${API}/${keyword}`)
+        .then((data) => data.json())
+        .then((products) => setProduct(products));
+    } else {
+      alert("Enter Product Name ! 😁");
+    }
   };
   useEffect(() => {
     getData();
@@ -25,6 +29,7 @@ export const Webscrape = () => {
             onChange={(e) => setKeyword(e.target.value)}
             label="Product Name"
             variant="outlined"
+            required
           />
           <Button onClick={getData} color="success" variant="contained">
             Search
@@ -49,13 +54,13 @@ export const Webscrape = () => {
 
 const Phone = ({ data }) => {
   const dollarPrice = data.price;
-  const rupees = dollarPrice.split($)[0];
+
   return (
     <Card className="product-container">
       <img className="product-picture" src={data.image} />
-      <CardContent>
+      <CardContent id="product-details">
         <p className="product-name">{data.name}</p>
-        <h3 className="product-price">{rupees}</h3>
+        <h3 className="product-price">{dollarPrice}</h3>
         <h3 className="product-rating">⭐ {data.rating}</h3>
         <Button variant="contained">Buy Now</Button>
       </CardContent>
