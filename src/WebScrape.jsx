@@ -12,7 +12,8 @@ export const Webscrape = () => {
     if (keyword !== "") {
       fetch(`${API}/${keyword}`)
         .then((data) => data.json())
-        .then((products) => setProduct(products));
+        .then((products) => setProduct(products))
+        .catch((err) => console.log(err));
     } else {
       alert("Enter Product Name ! 😁");
     }
@@ -30,6 +31,7 @@ export const Webscrape = () => {
             label="Product Name"
             variant="outlined"
             required
+            placeholder="Eg : iphone"
           />
           <Button onClick={getData} color="success" variant="contained">
             Search
