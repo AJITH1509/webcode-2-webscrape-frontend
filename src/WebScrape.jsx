@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useState, useEffect } from "react";
 import { API } from "../global.js";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const Webscrape = () => {
   const [keyword, setKeyword] = useState("iphone");
@@ -45,10 +46,7 @@ export const Webscrape = () => {
           ))}
         </div>
       ) : (
-        <h2>
-          failed to Scrape Data , because Amazon blocks the data Scrape. Try
-          after Sometime
-        </h2>
+        <CircularProgress color="inherit" disableShrink />
       )}
     </div>
   );
